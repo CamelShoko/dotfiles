@@ -4,10 +4,6 @@ set nocompatible
 
 " 文件探测编码顺序
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-if has("win32")
-    " windows默认保存为cp936
-    set fileencoding=cp936
-endif
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
