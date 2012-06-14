@@ -1,0 +1,5 @@
+bind j focus
+bind k focus
+
+# turn off visual bell, that let screen flashing.
+vbell off
