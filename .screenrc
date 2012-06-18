@@ -1,5 +1,16 @@
 bind j focus
 bind k focus
 
+startup_message off
+
+# Window list at the botton
+hardstatus alwayslastline
+hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+
 # turn off visual bell, that let screen flashing.
 vbell off
+
+# From Stephen Shirley
+# Don't block command output if the terminal stops responding
+# (like if the ssh connection times out for example).
+nonblock on
