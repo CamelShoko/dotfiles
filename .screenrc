@@ -1,5 +1,5 @@
-bind j focus
-bind k focus
+#bind j focus
+#bind k focus
 
 startup_message off
 

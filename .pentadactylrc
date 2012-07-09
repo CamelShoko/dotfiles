@@ -1,0 +1,33 @@
+"loadplugins '\.(js|penta)$'
+"group user
+
+" vim: set ft=pentadactyl:
+
+"配置切换Tab页
+map h gT
+map l gt
+map H h
+map L l
+
+" 屏蔽gmail 和 greader
+:autocmd LocationChange (www|mail)\.google\.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
+" 屏蔽twitter
+:autocmd LocationChange twitter\.com -js modes.set(modes.PASS_THROUGH)
+
+" 设置Hint颜色
+:set hintkeys='asdfjklgheriop'
+hi Hint font-family: system; font-size: 14px; text-transform: uppercase; color: white; background-color: black; padding:3px;
+hi HintElem background-color: #FFCDEF
+" :hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
+
+" y复制选中内容，Y复制网址
+" map y Y
+" map Y y
+
+" [[ ]] 翻页
+" set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|?)$,^(>|?),(>|?)$,\\bmore\\b
+" set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|?)$,^(<|?),(<|?)$
+
+" 保证进入命令模式，关闭输入法
+":style chrome://* #dactyl-commandline-command input {ime-mode: inactive;}
+":style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode: inactive;}  
