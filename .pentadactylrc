@@ -4,15 +4,46 @@
 " vim: set ft=pentadactyl:
 
 "配置切换Tab页
+map , <Leader>
 map h gT
 map l gt
 map H h
 map L l
 
+map b :set guioptions+=B<CR>
+map B :set guioptions-=B<CR>
+
+":map <Leader>b --javascript 
+"function iprl5()
+"{
+"    var d=document;
+"    var z=d.createElement('script');
+"    var b=d.body;
+"    var l=d.location;
+"
+"    try
+"    {
+"        if(!b) 
+"            throw(0);
+"        d.title='(Saving...) '+d.title;
+"        z.setAttribute('src',l.protocol+'//www.instapaper.com/j/4uHCmPO3MqYP?u='+encodeURIComponent(l.href)+'&t='+(new Date().getTime()));
+"        b.appendChild(z);
+"    }
+"    catch(e)
+"    {
+"        alert('Please wait until the page has loaded.');
+"    }
+"}
+"iprl5();
+
+
 " 屏蔽gmail 和 greader
 :autocmd LocationChange (www|mail)\.google\.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
 " 屏蔽twitter
 :autocmd LocationChange twitter\.com -js modes.set(modes.PASS_THROUGH)
+" 屏蔽github
+" :autocmd LocationChange github\.com -js modes.set(modes.PASS_THROUGH)
+
 
 " 设置Hint颜色
 :set hintkeys='asdfjklgheriop'
@@ -29,5 +60,5 @@ hi HintElem background-color: #FFCDEF
 " set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|?)$,^(<|?),(<|?)$
 
 " 保证进入命令模式，关闭输入法
-":style chrome://* #dactyl-commandline-command input {ime-mode: inactive;}
-":style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode: inactive;}  
+" :style chrome://* #dactyl-commandline-command input {ime-mode: inactive;}
+" :style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode: inactive;}  

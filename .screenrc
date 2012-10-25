@@ -14,3 +14,8 @@ vbell off
 # Don't block command output if the terminal stops responding
 # (like if the ssh connection times out for example).
 nonblock on
+
+
+# set scroll buffer
+defscrollback 5000
+

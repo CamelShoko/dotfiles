@@ -31,16 +31,19 @@ set tabstop=4
 set ignorecase smartcase
 
 " ×Ô¶¯Ëõ½ø
-set autoindent
+" set autoindent
  
 " ÖÇÄÜËõ½ø
-set smartindent
+" set smartindent
 
 " MakefileÐèÒªTab¿ªÍ·µÄÃüÁî,µ«ÊÇPython²å¼þÓÃTab»»ÐÐ-_-!!!
 " ²åÈëtabÓÃ¿Õ¸ñ´úÌæ
 set softtabstop=4
 " ÏÔÊ¾TabÓÃ¿Õ¸ñ´úÌæ
 set expandtab
+
+" turn off auto comment
+set formatoptions-=cro
 
 " ¹Ø±Õ×Ô¶¯±¸·Ý
 set nobackup
@@ -96,7 +99,7 @@ if has('gui_running') && has('unix')
 endif
 
 " txtÄ¬ÈÏ¶ÏÐÐ
-autocmd BufRead,BufNewFile *.txt  set wrap
+autocmd BufRead,BufNewFile *.txt,*.md  set wrap
 
 " ×î´ó»¯´°¿Ú
 " au GUIEnter * simalt ~x
@@ -109,7 +112,8 @@ endif
 " compiler bcc
 
 " make¿ì½Ý¼ü: ,<space>
-autocmd FileType c,cpp,h nmap <buffer> <leader><space> :make<cr><cr>:copen<cr>
+" autocmd FileType c,cpp,h nmap <buffer> <leader><space> :make<cr><cr>:copen<cr>
+nmap <leader><space> :make<cr><cr>:copen<cr>
 nmap <leader>cn :cn<cr>
 nmap <leader>cp :cp<cr>
 nmap <leader>cw :cw 10<cr>
@@ -130,10 +134,10 @@ autocmd! BufRead,BufNewFile *.py compiler pyunit
 nmap <leader>e :!python "%"<cr>
 
 " ÇÐ»»Í·ÎÄ¼þ: ,a  »á×Ô¶¯±£´æµ±Ç°ÎÄ¼þ(ÒÔÇ°ÒªÇÃ:w, ÏÖÔÚÉèÖÃÁËautowrite)
-autocmd FileType c,cpp,h  map <leader>a :A<cr>
+autocmd FileType cpp,h  map <leader>a :A<cr>
 
 " markdown to HTML on Linux 
-nmap <leader>md :w<cr>:silent !markdown_py "%">"%.html"<cr>:silent !firefox "%.html"<cr>
+nmap <leader>md :w<cr>:silent !markdown_py "%" -f "%.html"<cr>:silent !firefox "%.html"<cr>:redraw!<cr>
 
 " tagbar
 nmap <F8> :TagbarToggle<CR> 

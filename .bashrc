@@ -98,7 +98,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-#gvim 要标准的UTF-8格式
+
+# set path include my bin dir
+# PATH=$PATH:~/bin
+
+#vim 要标准的UTF-8格式
 export  LANG=zh_CN.UTF-8;
 export  LC_CTYPE="zh_CN.UTF-8";
 export  LC_NUMERIC="zh_CN.UTF-8";
@@ -113,6 +117,3 @@ export  LC_TELEPHONE="zh_CN.UTF-8";
 export  LC_MEASUREMENT="zh_CN.UTF-8";
 export  LC_IDENTIFICATION="zh_CN.UTF-8";
 export  LC_ALL=
-
-
-export PATH=$PATH:/usr/local/arm/3.4.1/bin
