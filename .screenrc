@@ -1,21 +1,43 @@
+# Set encoding
+defutf8 on
+
+# turn off visual bell, that let screen flashing.
+vbell off
+
+# Disable login
+deflogin off
+
+startup_message off
+
+# Dynamic title
+shelltitle '$ |bash'
+
 #bind j focus
 #bind k focus
 
-startup_message off
+# Caption String
+# caption always "%{= R}[ %{=b b}%-w%{=rb db}%>%n %t%{-}%+w%{-b}%< %=%{R}][%{M}%D %M %d %{G}%c%{R}]"
 
 # Window list at the botton
 hardstatus alwayslastline
 hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
-
-# turn off visual bell, that let screen flashing.
-vbell off
 
 # From Stephen Shirley
 # Don't block command output if the terminal stops responding
 # (like if the ssh connection times out for example).
 nonblock on
 
+# Set message timeout
+msgwait 3
+
+# Set mapping timeout
+maptimeout 10
+
+# Automatically detach upon hangup
+autodetach on
 
 # set scroll buffer
-defscrollback 5000
+defscrollback 10240
 
+# Refresh the display when exiting programs
+altscreen on

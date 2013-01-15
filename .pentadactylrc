@@ -40,7 +40,7 @@ map B :set guioptions-=B<CR>
 " 屏蔽gmail 和 greader
 :autocmd LocationChange (www|mail)\.google\.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
 " 屏蔽twitter
-:autocmd LocationChange twitter\.com -js modes.set(modes.PASS_THROUGH)
+" :autocmd LocationChange twitter\.com -js modes.set(modes.PASS_THROUGH)
 " 屏蔽github
 " :autocmd LocationChange github\.com -js modes.set(modes.PASS_THROUGH)
 

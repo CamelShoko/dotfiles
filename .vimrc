@@ -157,3 +157,8 @@ let g:NERDTreeWinSize=15
 
 " indent-guides
 let g:indent_guides_guide_size=1
+
+" javacomplete
+setlocal omnifunc=javacomplete#Complete 
+setlocal completefunc=javacomplete#CompleteParamsInfo 
+au FileType java imap <tab><tab> <C-x><C-o>
