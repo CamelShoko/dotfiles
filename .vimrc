@@ -134,7 +134,7 @@ autocmd! BufRead,BufNewFile *.py compiler pyunit
 nmap <leader>e :!python "%"<cr>
 
 " ÇÐ»»Í·ÎÄ¼þ: ,a  »á×Ô¶¯±£´æµ±Ç°ÎÄ¼þ(ÒÔÇ°ÒªÇÃ:w, ÏÖÔÚÉèÖÃÁËautowrite)
-autocmd FileType cpp,h  map <leader>a :A<cr>
+autocmd FileType cpp,c,h  map <leader>a :A<cr>
 
 " markdown to HTML on Linux 
 nmap <leader>md :w<cr>:silent !markdown_py "%" -f "%.html"<cr>:silent !firefox "%.html"<cr>:redraw!<cr>
