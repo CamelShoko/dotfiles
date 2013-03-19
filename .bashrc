@@ -101,6 +101,7 @@ fi
 
 # set path include my bin dir
 # PATH=$PATH:~/bin
+PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
 
 #vim 要标准的UTF-8格式
 export  LANG=zh_CN.UTF-8;
