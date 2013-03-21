@@ -1,0 +1,9 @@
+#http://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+#ignore case
+set completion-ignore-case on
+set completion-prefix-display-length 4
+Control-j: menu-complete
+Control-k: menu-complete-backward
+#set show-all-if-ambiguous on
+#set show-all-if-unmodified on
+set completion-map-case on
