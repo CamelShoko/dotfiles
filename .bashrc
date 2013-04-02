@@ -103,6 +103,14 @@ fi
 # PATH=$PATH:~/bin
 PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
 
+# cd = cd ll
+alias cd=x1
+function x1()
+{
+    builtin cd "$@"
+    ll
+}
+
 #vim 要标准的UTF-8格式
 export  LANG=zh_CN.UTF-8;
 export  LC_CTYPE="zh_CN.UTF-8";
