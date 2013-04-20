@@ -43,3 +43,5 @@
 # Tmux don't detect utf-8 successful, so force it
 alias tmux='tmux -u'
 alias scr=screen
+
+alias explorer="nautilus --no-desktop --browser"
