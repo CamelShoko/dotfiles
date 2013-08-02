@@ -10,8 +10,7 @@
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
-shopt -s histappend
-
+shopt -s histappend 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -101,7 +100,8 @@ fi
 
 # set path include my bin dir
 # PATH=$PATH:~/bin
-PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
+PATH=$PATH:~/opt/OpenWrt-Toolchain-ar71xx-for-mips_r2-gcc-4.6-linaro_uClibc-0.9.33.2/toolchain-mips_r2_gcc-4.6-linaro_uClibc-0.9.33.2/bin
+export STAGING_DIR=
 
 # cd = cd ll
 alias cd=x1
@@ -137,3 +137,7 @@ export LESS_TERMCAP_so=$'\E[44;33m' # begin standout-mode
 export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[04;33m' # begin underline
 
+export EDITOR=vim
+
+# calc
+function calc () { awk "BEGIN{ print $* }" ;}
