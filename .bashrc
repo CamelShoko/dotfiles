@@ -100,8 +100,9 @@ fi
 
 
 # set path include my bin dir
-# PATH=$PATH:~/bin
-PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
+PATH=$PATH:/home/bobo/bin
+PATH=$PATH:/home/bobo/opt/FriendlyARM/toolschain/4.4.3/bin
+PATH=$PATH:/home/bobo/opt/OpenWrt-Toolchain-ar71xx-for-mips_r2-gcc-4.6-linaro_uClibc-0.9.33.2/toolchain-mips_r2_gcc-4.6-linaro_uClibc-0.9.33.2/bin/
 
 # cd = cd ll
 alias cd=x1
