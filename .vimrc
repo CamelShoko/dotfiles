@@ -70,8 +70,8 @@ endif
 
 " ÕÛµþ
 set fdm=syntax
-set foldnestmax=1
-set foldlevel=1
+set foldnestmax=7
+set foldlevel=8
 
 " mapleader
 let mapleader=','
