@@ -1,0 +1,8 @@
+[user]
+	name = lbzhung
+	email = gewalalb@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	ct = commit
