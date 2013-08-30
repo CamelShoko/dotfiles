@@ -56,8 +56,8 @@ map <S-Space> 4k
 set nowrap
 
 " ÇÐ»»Tab´°¿ÚÁÐ±í
-map <S-h>    gT<cr>
-map <S-l>    gt<cr>
+map <S-h>    gT
+map <S-l>    gt
 
 " ÑÕÉ«Ö÷Ìâ
 " in terminal
@@ -162,3 +162,6 @@ let g:indent_guides_guide_size=1
 setlocal omnifunc=javacomplete#Complete 
 setlocal completefunc=javacomplete#CompleteParamsInfo 
 au FileType java imap <tab><tab> <C-x><C-o>
+
+" background transparent
+" hi Normal ctermbg=None
