@@ -164,4 +164,4 @@ setlocal completefunc=javacomplete#CompleteParamsInfo
 au FileType java imap <tab><tab> <C-x><C-o>
 
 " background transparent
-" hi Normal ctermbg=None
+nmap <leader>tr :hi Normal ctermbg=None<cr>

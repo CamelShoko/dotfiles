@@ -39,6 +39,8 @@ map B :set guioptions-=B<CR>
 
 " 屏蔽gmail 和 greader
 :autocmd LocationChange (www|mail)\.google\.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
+" 屏蔽鲜果
+:autocmd LocationChange xianguo\.com/reader -js modes.set(modes.PASS_THROUGH)
 " 屏蔽twitter
 " :autocmd LocationChange twitter\.com -js modes.set(modes.PASS_THROUGH)
 " 屏蔽github

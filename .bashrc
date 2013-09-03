@@ -142,3 +142,11 @@ export EDITOR=vim
 
 # calc
 function calc () { awk "BEGIN{ print $* }" ;}
+
+# pause like msdos
+function pause() 
+{
+    local dummy
+    read -s -r -p "Press any key to continue..." -n 1 dummy
+    echo
+}
