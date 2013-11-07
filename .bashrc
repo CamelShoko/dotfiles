@@ -97,20 +97,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
 # set path include my bin dir
 PATH=$PATH:~/bin
 PATH=$PATH:~/opt/FriendlyARM/toolschain/4.4.3/bin
 PATH=$PATH:~/opt/OpenWrt-Toolchain-ar71xx-for-mips_r2-gcc-4.6-linaro_uClibc-0.9.33.2/toolchain-mips_r2_gcc-4.6-linaro_uClibc-0.9.33.2/bin
 export STAGING_DIR=
-
-# cd = cd ll
-alias cd=x1
-function x1()
-{
-    builtin cd "$@"
-    ll
-}
 
 #vim 要标准的UTF-8格式
 export  LANG=zh_CN.UTF-8;

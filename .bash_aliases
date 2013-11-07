@@ -45,3 +45,11 @@ alias tmux='tmux -u'
 alias scr=screen
 
 alias explorer="nautilus --no-desktop --browser"
+
+# cd = cd ll
+alias cd=x1
+function x1()
+{
+    builtin cd "$@"
+    ll
+}
