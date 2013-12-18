@@ -133,6 +133,9 @@ nmap wm :WMToggle<CR>
 autocmd! BufRead,BufNewFile *.py compiler pyunit
 nmap <leader>e :!python "%"<cr>
 
+" lua
+nmap <leader>l :!lua "%"<cr>
+
 " ÇÐ»»Í·ÎÄ¼þ: ,a  »á×Ô¶¯±£´æµ±Ç°ÎÄ¼þ(ÒÔÇ°ÒªÇÃ:w, ÏÖÔÚÉèÖÃÁËautowrite)
 autocmd FileType cpp,c,h  map <leader>a :A<cr>
 
@@ -143,8 +146,7 @@ nmap <leader>md :w<cr>:silent !markdown_py "%" -f "%.html"<cr>:silent !firefox "
 nmap <F8> :TagbarToggle<CR> 
 
 " miniBufExpl
-let g:miniBufExplSplitToEdge = 0
-let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplSplitToEdge = 0 let g:miniBufExplMapCTabSwitchBufs = 1
 hi MBENormal  guifg=#FFFFFF guibg=#000040
 hi MBEChanged  guifg=#FFFFFF guibg=#000040 
 hi MBEVisibleNormal  guifg=#FFFF00 guibg=#000040
