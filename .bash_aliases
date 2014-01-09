@@ -50,6 +50,5 @@ alias explorer="nautilus --no-desktop --browser"
 alias cd=x1
 function x1()
 {
-    builtin cd "$@"
-    ll
+    builtin cd "$@" && ll
 }

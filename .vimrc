@@ -167,3 +167,4 @@ au FileType java imap <tab><tab> <C-x><C-o>
 
 " background transparent
 nmap <leader>tr :hi Normal ctermbg=None<cr>
+nmap <leader>ntr :hi Normal ctermbg=0<cr>
