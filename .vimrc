@@ -168,3 +168,15 @@ au FileType java imap <tab><tab> <C-x><C-o>
 " background transparent
 nmap <leader>tr :hi Normal ctermbg=None<cr>
 nmap <leader>ntr :hi Normal ctermbg=0<cr>
+
+" add save
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+
+" add comment
+map <leader>/a :s/^\([^\/\/]\s*\)/\/\/\1/<cr>
+" delete comment
+map <leader>/d :s/^\/\/\(\s*\)/\1/<cr>
+" python style
+map <leader>#a :s/^\([^#]\s*\)/#\1/<cr>
+map <leader>#d :s/^#\+\(\s*\)/\1/<cr>

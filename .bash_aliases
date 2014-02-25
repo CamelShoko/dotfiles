@@ -45,6 +45,7 @@ alias tmux='tmux -u'
 alias scr=screen
 
 alias explorer="nautilus --no-desktop --browser"
+alias openfile="xdg-open"
 
 # cd = cd ll
 alias cd=x1
