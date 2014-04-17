@@ -308,6 +308,10 @@ TEXT
 ${color slate grey}Uptime: ${color}$uptime_short
 ${color slate grey}CPU: ${color}$cpu% ${alignr}${color slate grey}DiskIO:${color}${diskio}
 ${cpugraph 20,115 000000 ffff00 -t}${alignr}${diskiograph 20,115 0000 ffff00 -t}
+CPU Temp: ${execi 8 sensors | grep 'Physical id 0' | cut -c17-24}
+
+#Core1:${execi 8 sensors | grep 'Core 0' | cut -c17-24}
+#Core2:${execi 8 sensors | grep 'Core 2' | cut -c17-24}
 ${color slate grey}Highest CPU:
 ${color #ddaa00} ${top name 1}${top cpu 1}
 ${color lightgrey} ${top name 2}${top cpu 2}
@@ -323,15 +327,19 @@ ${color slate grey}MEM:  ${color}$memperc%  ${alignr}$mem/$memmax
 ${color #00FF00}${membar 3,230}
 ${color slate grey}SWAP: ${color }$swapperc%  ${alignr}$swap/$swapmax
 ${color #00FF00}${swapbar 3,230}
-#${color slate grey}ROOT:    ${color }${fs_free /}/${fs_size /}
-#${fs_bar 3,100 /}
-#${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
-#${fs_bar 3,100 /home}
-
+${color slate grey}ROOT:  ${color }${fs_free /}/${fs_size /}
+${fs_bar 3,230 /}
+${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
+${fs_bar 3,230 /home}
+${if_up wlan0}
 ${color slate grey}NET: ${color}${addr wlan0}
 ${color}Up:  ${color}${upspeed wlan0}${alignr}Total:${totalup wlan0}
 ${upspeedgraph wlan0 20,230 fef7b2 ffff00 50KiB -t}
 ${color}Down:${color}${downspeed wlan0}${alignr}Total:${totaldown wlan0}
-# leftmost is fef7b2 leftmost is ffff00 scale is all bandwidth(KiB) and conky will cal
-# my 8M net bandwidth, so is 976KiB/s, maybe half 
 ${downspeedgraph wlan0 20,230 fef7b2 ffff00 244KiB -t}
+$else${if_up eth0}
+${color slate grey}NET: ${color}${addr eth0}
+${color}Up:  ${color}${upspeed eth0}${alignr}Total:${totalup eth0}
+${upspeedgraph eth0 20,230 fef7b2 ffff00 50KiB -t}
+${color}Down:${color}${downspeed eth0}${alignr}Total:${totaldown eth0}
+${downspeedgraph eth0 20,230 fef7b2 ffff00 244KiB -t} $endif
