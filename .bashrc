@@ -49,10 +49,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='`a=$?;if [ $a -ne 0 ]; then echo -n -e "\[\e[01;32;41m\]{$a}"; fi`\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w`[[ -d .git ]] && echo -n -e "\[\e[33;40m\](branch:$(git branch | sed -e "/^ /d" -e "s/* \(.*\)/\1/"))\[\033[01;32m\]\[\e[00m\]"`\[\033[01;34m\]$\[\e[00m\]'
+    PS1='`a=$?;if [ $a -ne 0 ]; then echo -n -e "\[\e[01;32;41m\]{$a}"; fi`\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w`[[ -d .git ]] && echo -n -e "\[\e[33;40m\](branch:$(git branch | sed -e "/^ /d" -e "s/* \(.*\)/\1/"))\[\033[01;32m\]\[\e[00m\]"`\[\033[01;34m\]\$\[\e[00m\] '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='`a=$?;if [ $a -ne 0 ]; then echo -n -e "{$a}"; fi`\u@\h:\w`[[ -d .git ]] && echo -n -e "(branch:$(git branch | sed -e "/^ /d" -e "s/* \(.*\)/\1/"))"`$'
+    PS1='`a=$?;if [ $a -ne 0 ]; then echo -n -e "{$a}"; fi`\u@\h:\w`[[ -d .git ]] && echo -n -e "(branch:$(git branch | sed -e "/^ /d" -e "s/* \(.*\)/\1/"))"`\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
@@ -151,4 +151,19 @@ function sshre()
         ip=$@
     fi
     ssh -p 32768 root@192.168.$ip
+}
+
+function scpre()
+{
+    local ip="2.100"
+    local dir="/tmp"
+    if [ ! "$2" == "" ];then
+        ip=$2
+    fi
+
+    if [ ! "$3" == "" ];then
+        dir=$3
+    fi
+
+    scp -P 32768 $1 root@192.168.$ip:$dir
 }
