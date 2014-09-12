@@ -17,8 +17,8 @@ background no
 use_xft yes
 
 # Xft font when Xft is enabled
-#xftfont Bitstream Vera Sans Mono:size=11
-xftfont Monospace:size=11
+xftfont Bitstream Vera Sans Mono:size=11
+#xftfont Monospace:size=11
 
 # Text alpha when using Xft
 xftalpha 0.8

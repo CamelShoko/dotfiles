@@ -6,3 +6,5 @@
 	br = branch
 	st = status
 	ct = commit
+[color]
+	ui = false

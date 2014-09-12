@@ -150,7 +150,12 @@ function sshre()
     if [ ! "$@" == "" ];then
         ip=$@
     fi
-    ssh -p 32768 root@192.168.$ip
+
+    if [ $(echo $ip|cut -d "." -f 2) == "local" ];then
+        ssh -p 32768 root@$ip
+    else
+        ssh -p 32768 root@192.168.$ip
+    fi
 }
 
 function scpre()
@@ -165,5 +170,10 @@ function scpre()
         dir=$3
     fi
 
-    scp -P 32768 $1 root@192.168.$ip:$dir
+    if [ $(echo $ip|cut -d "." -f 2) == "local" ];then
+        scp -P 32768 $1 root@$ip:$dir
+    else
+        scp -P 32768 $1 root@192.168.$ip:$dir
+    fi
+
 }
