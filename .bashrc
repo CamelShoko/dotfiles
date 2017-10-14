@@ -100,10 +100,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # set path include my bin dir
-PATH=$PATH:~/bin
+#PATH=$PATH:~/bin
+#PATH=$PATH:~/opt/Sourcery_G++_Lite/bin
 PATH=$PATH:~/opt/FriendlyARM/toolschain/4.4.3/bin
-PATH=$PATH:~/opt/OpenWrt-Toolchain-ar71xx-for-mips_r2-gcc-4.6-linaro_uClibc-0.9.33.2/toolchain-mips_r2_gcc-4.6-linaro_uClibc-0.9.33.2/bin
-export STAGING_DIR=
+#PATH=$PATH:~/opt/OpenWrt-Toolchain-ar71xx-for-mips_r2-gcc-4.6-linaro_uClibc-0.9.33.2/toolchain-mips_r2_gcc-4.6-linaro_uClibc-0.9.33.2/bin
+#PATH=$PATH:~/opt/am3354/usr/bin
+#PATH=$PATH:~/opt/gcc-4.9.2-glibc-2.20-binutils-2.24-kernel-3.16-sanitized/bin
+PATH=$PATH:/opt/OSELAS.Toolchain-2014.12.0/arm-v4t-linux-gnueabi/gcc-4.9.2-glibc-2.20-binutils-2.24-kernel-3.16-sanitized/bin/
+PATH=$PATH:~/opt/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin
+#export STAGING_DIR=
 
 #vim 要标准的UTF-8格式
 export  LANG=zh_CN.UTF-8;
@@ -144,36 +149,37 @@ function pause()
     echo
 }
 
-function sshre()
+function _debug()
 {
-    local ip="2.100"
-    if [ ! "$@" == "" ];then
-        ip=$@
-    fi
-
-    if [ $(echo $ip|cut -d "." -f 2) == "local" ];then
-        ssh -p 32768 root@$ip
-    else
-        ssh -p 32768 root@192.168.$ip
-    fi
+    RCFILE=$1
+    CMD=$2
+    cat > "$RCFILE" <<END
+source ~/.bashrc
+history -s '$CMD'
+echo '$CMD'
+$CMD
+END
 }
 
-function scpre()
+function debug()
 {
-    local ip="2.100"
-    local dir="/tmp"
-    if [ ! "$2" == "" ];then
-        ip=$2
+    host=$1
+    if [ -z "$host" ];then
+        host=ddc
     fi
+    zigbee="ssh $host \"/etc/init.d/ddc_serverd stop;/usr/local/ddc/ddc_server_* -V\""
+    service="ssh $host \"sleep 1;/usr/local/ddc/service/main.py -V\""
+    web="ssh $host \"sleep 1;/usr/local/ddc/web/core.py\""
 
-    if [ ! "$3" == "" ];then
-        dir=$3
-    fi
+    RCFILE1=`tempfile`
+    _debug $RCFILE1 "$zigbee"
+    RCFILE2=`tempfile`
+    _debug $RCFILE2 "$service"
+    RCFILE3=`tempfile`
+    _debug $RCFILE3 "$web"
 
-    if [ $(echo $ip|cut -d "." -f 2) == "local" ];then
-        scp -P 32768 $1 root@$ip:$dir
-    else
-        scp -P 32768 $1 root@192.168.$ip:$dir
-    fi
-
+    gnome-terminal --maximize --window  --title zigbee -e "/bin/bash --rcfile $RCFILE1" --tab --title service -e "/bin/bash --rcfile $RCFILE2" --tab --title web -e "/bin/bash --rcfile $RCFILE3"
+    #rm -f "$RCFILE1"
+    #rm -f "$RCFILE2"
+    #rm -f "$RCFILE3"
 }

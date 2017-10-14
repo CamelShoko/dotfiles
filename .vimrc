@@ -12,54 +12,38 @@ set incsearch		" do incremental searching
 set hlsearch  " high light search
 set mouse=a
 
-" ¼ì²éÎÄ¼þÀàÐÍ½Å±¾
 filetype plugin indent on
 
-" ¿ªÆôÓï·¨¸ßÁÁ
 syntax on
 
-" ÏÔÊ¾ÐÐºÅ
 set nu
  
-" >>ºÍ<<µÄÒÆ¶¯¸ñÊý
 set shiftwidth=4
 
-" Ò»¸ö tab ¼üËõ½ø 4 ¸ñ
 set tabstop=4
 
-" ËÑË÷Ê±ºöÂÔ´óÐ¡Ð´£¬µ«Èç¹ûËÑË÷´Ê°üº¬´óÐ´Ôò²»ºöÂÔ
 set ignorecase smartcase
 
-" ×Ô¶¯Ëõ½ø
 " set autoindent
  
-" ÖÇÄÜËõ½ø
 " set smartindent
 
-" MakefileÐèÒªTab¿ªÍ·µÄÃüÁî,µ«ÊÇPython²å¼þÓÃTab»»ÐÐ-_-!!!
-" ²åÈëtabÓÃ¿Õ¸ñ´úÌæ
 set softtabstop=4
-" ÏÔÊ¾TabÓÃ¿Õ¸ñ´úÌæ
-set expandtab
+" set expandtab
 
 " turn off auto comment
 set formatoptions-=cro
 
-" ¹Ø±Õ×Ô¶¯±¸·Ý
 set nobackup
 
-" ¿Õ¸ñ¹ö¶¯
 map <Space>  4j
 map <S-Space> 4k
 
-" Ä¬ÈÏ²»×Ô¶¯¶ÏÐÐ
 set nowrap
 
-" ÇÐ»»Tab´°¿ÚÁÐ±í
 map <S-h>    gT
 map <S-l>    gt
 
-" ÑÕÉ«Ö÷Ìâ
 " in terminal
 if has('gui_running')
     colorscheme darkblue
@@ -68,7 +52,6 @@ else
     colorscheme torte
 endif
 
-" ÕÛµþ
 set fdm=syntax
 set foldnestmax=7
 set foldlevel=8
@@ -76,19 +59,16 @@ set foldlevel=8
 " mapleader
 let mapleader=','
 
-" ×Ô¶¯ÇÐ»»µ±Ç°Ä¿Â¼
 " set autochdir
 
-" ×Ô¶¯±£´æÎÄ¼þ(ÔÚÇÐ»»´°¿ÚÊ±)!!!!:)
 set autowrite
 
-" ÇÐ»»´°¿Ú
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
+inoremap jj <ESC>
 
-" È¥µô²Ëµ¥À¸¡¢¹¤¾ßÀ¸¡¢¹ö¶¯Ìõ
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
@@ -98,22 +78,18 @@ if has('gui_running') && has('unix')
     set guifont=Monospace\ Regular\ 11
 endif
 
-" txtÄ¬ÈÏ¶ÏÐÐ
 autocmd BufRead,BufNewFile *.txt,*.md  set wrap
 
-" ×î´ó»¯´°¿Ú
 " au GUIEnter * simalt ~x
-" È«ÆÁÄ£Ê½
 if has('gui_running') && has('win32')
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 endif
 
-" ÉèÖÃBCB±àÒëÆ÷£¬ÐÞ¸Ä¹ýµÄbcc.vim
 " compiler bcc
 
-" make¿ì½Ý¼ü: ,<space>
 " autocmd FileType c,cpp,h nmap <buffer> <leader><space> :make<cr><cr>:copen<cr>
-nmap <leader><space> :make<cr><cr>:copen<cr>
+"nmap <leader><space> :make -j2<cr><cr>:copen<cr>
+nmap <leader><space> :make<cr> :copen<cr>
 nmap <leader>cn :cn<cr>
 nmap <leader>cp :cp<cr>
 nmap <leader>cw :cw 10<cr>
@@ -136,7 +112,9 @@ nmap <leader>e :!python "%"<cr>
 " lua
 nmap <leader>l :!lua "%"<cr>
 
-" ÇÐ»»Í·ÎÄ¼þ: ,a  »á×Ô¶¯±£´æµ±Ç°ÎÄ¼þ(ÒÔÇ°ÒªÇÃ:w, ÏÖÔÚÉèÖÃÁËautowrite)
+" qml
+nmap <leader>m :w<cr>:!~/opt/qt_5.4.1/5.4/gcc/bin/qmlscene "%"<cr>
+
 autocmd FileType cpp,c,h  map <leader>a :A<cr>
 
 " markdown to HTML on Linux 

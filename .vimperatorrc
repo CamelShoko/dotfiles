@@ -1,0 +1,21 @@
+"3.7 (created: 2013/04/03 18:20:07)
+" vim: set ft=vimperator:
+
+noremap h gT
+noremap l gt
+noremap H h
+noremap L l
+
+" block google mail/ feedly
+autocmd LocationChange .* js modes.passAllKeys = /.feedly\.com/.test(buffer.URL)
+
+" Hint
+hi Hint font-family: system; font-size: 14px; text-transform: uppercase; color: white; background-color: black; padding:3px;
+hi HintElem background-color: #FFCDEF
+
+" set guioptions-=mT
+"set gui=none,tabs,addons
+set gui=none,tabs
+" set noautocomplete
+
+set hintchars="abcdefghijklmnopqrstuvwxyz"

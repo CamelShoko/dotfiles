@@ -306,8 +306,12 @@ pad_percents 0
 
 TEXT
 ${color slate grey}Uptime: ${color}$uptime_short
-${color slate grey}CPU: ${color}$cpu% ${alignr}${color slate grey}DiskIO:${color}${diskio}
-${cpugraph 20,115 000000 ffff00 -t}${alignr}${diskiograph 20,115 0000 ffff00 -t}
+# TODO
+#${color slate grey}CPU: ${color}$cpu% ${alignr}${color slate grey}DiskIO:${color}${diskio}
+${color slate grey}CPU: ${color}$cpu% ${color slate grey}DiskIO:${color}${diskio}
+# TODO
+#${cpugraph 20,115 000000 ffff00 -t}${alignr}${diskiograph 20,115 0000 ffff00 -t}
+${cpugraph 20,115 000000 ffff00 -t} ${diskiograph 20,115 0000 ffff00 -t}
 CPU Temp: ${execi 8 sensors | grep 'Physical id 0' | cut -c17-24}
 
 #Core1:${execi 8 sensors | grep 'Core 0' | cut -c17-24}
@@ -323,9 +327,13 @@ ${color lightgrey} ${top_mem name 2}${top_mem mem 2}
 ${color lightgrey} ${top_mem name 3}${top_mem mem 3}
 ${color lightgrey} ${top_mem name 4}${top_mem mem 4}
 
-${color slate grey}MEM:  ${color}$memperc%  ${alignr}$mem/$memmax
+# TODO
+#${color slate grey}MEM:  ${color}$memperc%  ${alignr}$mem/$memmax
+${color slate grey}MEM:  ${color}$memperc%  $mem/$memmax
 ${color #00FF00}${membar 3,230}
-${color slate grey}SWAP: ${color }$swapperc%  ${alignr}$swap/$swapmax
+# TODO
+#${color slate grey}SWAP: ${color }$swapperc%  ${alignr}$swap/$swapmax
+${color slate grey}SWAP: ${color }$swapperc%  $swap/$swapmax
 ${color #00FF00}${swapbar 3,230}
 ${color slate grey}ROOT:  ${color }${fs_free /}/${fs_size /}
 ${fs_bar 3,230 /}
@@ -333,13 +341,21 @@ ${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
 ${fs_bar 3,230 /home}
 ${if_up wlan0}
 ${color slate grey}NET: ${color}${addr wlan0}
-${color}Up:  ${color}${upspeed wlan0}${alignr}Total:${totalup wlan0}
+# TODO
+#${color}Up:  ${color}${upspeed wlan0}${alignr}Total:${totalup wlan0}
+${color}Up:  ${color}${upspeed wlan0} Total:${totalup wlan0}
 ${upspeedgraph wlan0 20,230 fef7b2 ffff00 50KiB -t}
-${color}Down:${color}${downspeed wlan0}${alignr}Total:${totaldown wlan0}
+# TODO
+#${color}Down:${color}${downspeed wlan0}${alignr}Total:${totaldown wlan0}
+${color}Down:${color}${downspeed wlan0} Total:${totaldown wlan0}
 ${downspeedgraph wlan0 20,230 fef7b2 ffff00 244KiB -t}
 $else${if_up eth0}
 ${color slate grey}NET: ${color}${addr eth0}
-${color}Up:  ${color}${upspeed eth0}${alignr}Total:${totalup eth0}
+# TODO
+#${color}Up:  ${color}${upspeed eth0}${alignr}Total:${totalup eth0}
+${color}Up:  ${color}${upspeed eth0} Total:${totalup eth0}
 ${upspeedgraph eth0 20,230 fef7b2 ffff00 50KiB -t}
-${color}Down:${color}${downspeed eth0}${alignr}Total:${totaldown eth0}
+# TODO
+#${color}Down:${color}${downspeed eth0}${alignr}Total:${totaldown eth0}
+${color}Down:${color}${downspeed eth0} Total:${totaldown eth0}
 ${downspeedgraph eth0 20,230 fef7b2 ffff00 244KiB -t} $endif
